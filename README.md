@@ -35,7 +35,7 @@ Pour lancer le client sur lequel vous modifierez le code :
 
 _Vous pouvez tester vos requetes graphQL en utilisant le helper à l'adresse `http://localhost:4000/graphql`_
 
-Il vous reste à modifier le contenu de l'application qui se trouve dans le dossier `client`.
+Il vous reste à modifier le contenu de l'application qui se trouve dans le dossier `client2`.
 
 #### Notations
 
