@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateSeries from './CreateSeries';
-import MediaCard from './components/carousel/carousel';
+import Mediacard from './components/carousel/carousel';
 import { Query } from 'react-apollo';
 import { SERIES_QUERY } from './Query/Series';
 
@@ -13,19 +13,28 @@ import { SERIES_QUERY } from './Query/Series';
 function App() {
   return (
     <div className="App">
+     <CreateSeries />
       <Query query={SERIES_QUERY}>
         {({ loading, error, data }) => {
           if (loading) return (<div>Fetching</div>);
           if (error) return (<div>Error</div>);
+          let items = data.series;
+          console.log(data.series);
           return (
-            <div>
+            <>
+            <div className="jumbotron text-center">
               There are {data.series.length} series in the server
             </div>
+            {
+              data.series.map((item) => (
+                <Mediacard serie={item}/>
+              ))
+            }
+            </>
           )
         }}
       </Query>
-      <CreateSeries />
-      <MediaCard />
+    
     </div>
   );
 }
